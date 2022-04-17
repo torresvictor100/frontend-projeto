@@ -7,7 +7,7 @@ export default props =>
             <Link to="/">
                 <i className="fa fa-home">Início</i>
             </Link>
-            <Link to="/query">
+            <Link to="/departament">
                 <i class="fa fa-users"> Departamento</i>
             </Link>
             <Link to="/register">
