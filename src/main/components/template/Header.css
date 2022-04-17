@@ -1,0 +1,13 @@
+header.header{
+    background-color: #343c83;
+    color: #efeceb;
+    padding: 0px 15px;
+    overflow: hidden;
+    white-space: nowrap;
+    box-shadow: var(--shadow);
+    flex: row;
+}
+
+header.header h1{
+    font-size: 3.8em;
+}
