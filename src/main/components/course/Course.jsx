@@ -39,7 +39,6 @@ export default class Course extends Component {
                 const list = this.getUpdatedList(resp.data)
                 this.setState({ course: initialState.course, list })
             })
-            console.log(course)
     }
 
     getUpdatedList(course, add = true) {

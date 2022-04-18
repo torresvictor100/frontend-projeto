@@ -100,6 +100,7 @@ export default class Departament extends Component {
                             <label>Area</label>
                             <div/>
                             <select className="selectAreaId" name="selectArea" id= "area" onChange={e => this.mudararea()}>
+                                <option key="0" >Selecione a area</option>
                                 <option value="BIOLOGICAS" type="text" id="BIOLOGICAS"  >BIOLOGICAS</option>
                                 <option value="EXATAS" type="text" id="EXATAS" >EXATAS</option>
                                 <option value="HUMANAS" type="text" id="HUMANAS"  >HUMANAS</option>
