@@ -12,7 +12,7 @@ const headerProps = {
 const baseUrl = 'http://localhost:8080/departments'
 
 const initialState = {
-    departament: { name: '', sigla: '', area: '' },
+    departament: { name: '', sigla: '', area: 'BIOLOGICAS' },
     list: []
 }
 
@@ -32,13 +32,13 @@ export default class Departament extends Component {
     }
 
     save() {
-        const user = this.state.user
-        const method = user.id ? 'put' : 'post'
-        const url = user.id ? `${baseUrl}/${user.id}` : baseUrl
-        axios[method](url, user)
+        const departament = this.state.departament
+        const method = departament.id ? 'put' : 'post'
+        const url = departament.id ? `${baseUrl}/${departament.id}` : baseUrl
+        axios[method](url, departament)
             .then(resp => {
                 const list = this.getUpdatedList(resp.data)
-                this.setState({ user: initialState.user, list })
+                this.setState({ departament: initialState.departament, list })
             })
     }
 
@@ -56,9 +56,20 @@ export default class Departament extends Component {
 
     mudararea(event) {
         const departament = { ...this.state.departament }
-        departament[event.target.area] = event.target.value
+        var select = document.getElementById('area');
+        var text = select.options[select.selectedIndex].text;
+        departament.area = text
         this.setState({ departament })
     }
+
+    
+    troca() {
+        
+        var select = document.querySelector('area')
+        //select.value = 
+        
+    }
+    
 
     renderForm() {
         return (
@@ -88,10 +99,10 @@ export default class Departament extends Component {
                         <div className="form-grup">
                             <label>Area</label>
                             <div/>
-                            <select className="selectAreaId" name="selectArea" onChange={e => this.mudararea()}>
-                                <option value="1" >BIOLOGICAS</option>
-                                <option value="2" >EXATAS</option>
-                                <option value="3" >HUMANAS</option>
+                            <select className="selectAreaId" name="selectArea" id= "area" onChange={e => this.mudararea()}>
+                                <option value="BIOLOGICAS" type="text" id="BIOLOGICAS"  >BIOLOGICAS</option>
+                                <option value="EXATAS" type="text" id="EXATAS" >EXATAS</option>
+                                <option value="HUMANAS" type="text" id="HUMANAS"  >HUMANAS</option>
                             </select>
                         </div>
                     </div>
@@ -115,6 +126,7 @@ export default class Departament extends Component {
 
     load(departament) {
         this.setState({ departament })
+        this.troca()
     }
 
     remove(departament) {
@@ -150,7 +162,7 @@ export default class Departament extends Component {
                     <td>{departament.id}</td>
                     <td>{departament.name}</td>
                     <td>{departament.sigla}</td>
-                    <td>{departament.area = 1 ? "BIOLOGICAS": departament.area = 2 ? "EXATAS": "HUMANAS" }</td>
+                    <td>{departament.area }</td>
                     <td>
                         <button className="btn btn-warning"
                             onClick={() => this.load(departament)}>
