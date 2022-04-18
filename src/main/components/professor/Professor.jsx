@@ -34,7 +34,13 @@ export default class Professor extends Component {
     }
 
     clear() {
-        this.setState({ professor: initialState.professor })
+        const professor = {
+            name : '',
+            cpf : '',
+            departmentId: ''
+        }
+        
+        this.setState({ professor })
     }
 
     save() {
@@ -73,12 +79,7 @@ export default class Professor extends Component {
     opiton(){
         const listaDeDados = this.state.listDepartment
         const listDepartmentUnicos = []
-
         listaDeDados.map((department) =>  department.id == (listDepartmentUnicos.map((department) => department.id)? listDepartmentUnicos.push(department) : null ))
-
-
-        
-
         return (
             <select className="selectAreaId" name="selectArea" id= "area" onChange={e => this.mudararea()}>
                                 <option>Select o departamento</option>
@@ -143,6 +144,7 @@ export default class Professor extends Component {
     }
 
     remove(professor) {
+        console.log(professor.id)
         axios.delete(`${baseUrl}/${professor.id}`).then(resp => {
             const list = this.getUpdatedList(professor, false)
             this.setState({ list })
