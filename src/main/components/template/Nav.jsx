@@ -16,7 +16,7 @@ export default props =>
             <Link to="/courses">
                 <i class="fa fa-users"> Curso</i>
             </Link>
-            <Link to="/allregister">
+            <Link to="/allocation">
                 <i class="fa fa-users">Alocações</i>
             </Link>
         </nav>

@@ -57,18 +57,11 @@ export default class Departament extends Component {
     mudararea(event) {
         const departament = { ...this.state.departament }
         var select = document.getElementById('area');
-        var text = select.options[select.selectedIndex].text;
+        var text = select.options[select.selectedIndex].value;
         departament.area = text
         this.setState({ departament })
     }
 
-    
-    troca() {
-        
-        var select = document.querySelector('area')
-        //select.value = 
-        
-    }
     
 
     renderForm() {
@@ -101,6 +94,7 @@ export default class Departament extends Component {
                             <div/>
                             <select className="selectAreaId" name="selectArea" id= "area" onChange={e => this.mudararea()}>
                                 <option key="0" >Selecione a area</option>
+                                <option>Selecione a area</option>
                                 <option value="BIOLOGICAS" type="text" id="BIOLOGICAS"  >BIOLOGICAS</option>
                                 <option value="EXATAS" type="text" id="EXATAS" >EXATAS</option>
                                 <option value="HUMANAS" type="text" id="HUMANAS"  >HUMANAS</option>
@@ -127,7 +121,6 @@ export default class Departament extends Component {
 
     load(departament) {
         this.setState({ departament })
-        this.troca()
     }
 
     remove(departament) {

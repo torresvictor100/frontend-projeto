@@ -144,7 +144,6 @@ export default class Professor extends Component {
     }
 
     remove(professor) {
-        console.log(professor.id)
         axios.delete(`${baseUrl}/${professor.id}`).then(resp => {
             const list = this.getUpdatedList(professor, false)
             this.setState({ list })
