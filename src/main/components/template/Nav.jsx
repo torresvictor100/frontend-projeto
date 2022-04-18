@@ -13,7 +13,7 @@ export default props =>
             <Link to="/register">
                 <i class="fa fa-users"> Professor</i>
             </Link>
-            <Link to="/register">
+            <Link to="/courses">
                 <i class="fa fa-users"> Curso</i>
             </Link>
             <Link to="/allregister">
