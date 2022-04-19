@@ -41,6 +41,7 @@ export default class Professor extends Component {
         }
         
         this.setState({ professor })
+        alert("Foi limpo todo o campo")
     }
 
     save() {
@@ -141,6 +142,7 @@ export default class Professor extends Component {
         this.state.professor.cpf = professor.cpf
         this.state.professor.departmentId = professor.department.id
         this.setState(professor)
+        alert("A professor com o id:" + professor.id + " Esta no campo para ser atualizado para se atualizada")
     }
 
     remove(professor) {

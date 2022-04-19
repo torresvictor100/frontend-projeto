@@ -29,6 +29,7 @@ export default class Departament extends Component {
 
     clear() {
         this.setState({ departament: initialState.departament })
+        alert("Foi limpo todo o campo")
     }
 
     save() {
@@ -40,6 +41,7 @@ export default class Departament extends Component {
                 const list = this.getUpdatedList(resp.data)
                 this.setState({ departament: initialState.departament, list })
             })
+            console.log(departament.id)
     }
 
     getUpdatedList(departament, add = true) {
@@ -93,7 +95,6 @@ export default class Departament extends Component {
                             <label>Area</label>
                             <div/>
                             <select className="selectAreaId" name="selectArea" id= "area" onChange={e => this.mudararea()}>
-                                <option key="0" >Selecione a area</option>
                                 <option>Selecione a area</option>
                                 <option value="BIOLOGICAS" type="text" id="BIOLOGICAS"  >BIOLOGICAS</option>
                                 <option value="EXATAS" type="text" id="EXATAS" >EXATAS</option>
@@ -121,6 +122,7 @@ export default class Departament extends Component {
 
     load(departament) {
         this.setState({ departament })
+        alert("A departamento com o id:" + departament.id + " Esta no campo para ser atualizado para se atualizada")
     }
 
     remove(departament) {

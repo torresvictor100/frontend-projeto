@@ -46,12 +46,29 @@ export default class Allocation extends Component {
             professorId: '',
             courseId: ''
         }
-
+        alert("Foi limpo todo o campo")
         this.setState({ allocation })
+    }
+
+    testParaVerSeAhoraEstaCorreta(allocation){
+        const testSeTaComAVariavelCorreta = allocation
+        const TirandoOutrosValores = testSeTaComAVariavelCorreta.substring(5)
+        const testSeTaComAVariavelCorretaConvertido = testSeTaComAVariavelCorreta + ''
+        if(TirandoOutrosValores === ""){
+                this.state.allocation.start = this.state.allocation.start + "-0300"
+            return this.state.allocation.end = this.state.allocation.end + "-0300" 
+            
+            
+        }else{
+            return testSeTaComAVariavelCorretaConvertido
+        }
+        
     }
 
     save() {
         const allocation = this.state.allocation
+        this.testParaVerSeAhoraEstaCorreta(allocation.start)
+        this.testParaVerSeAhoraEstaCorreta(allocation.end)
         const method = allocation.id ? 'put' : 'post'
         const url = allocation.id ? `${baseUrl}/${allocation.id}` : baseUrl
         axios[method](url, allocation)
@@ -59,7 +76,6 @@ export default class Allocation extends Component {
                 const list = this.getUpdatedList(resp.data)
                 this.setState({ allocation: initialState.allocation, list })
             })
-
     }
 
     getUpdatedList(allocation, add = true) {
@@ -208,6 +224,7 @@ export default class Allocation extends Component {
         this.state.allocation.start = allocation.start
         this.state.allocation.end = allocation.end
         this.setState(allocation)
+        alert("A allocation com o id:" + allocation.id + " Esta no campo para ser atualizado para se atualizada")
     }
 
     remove(allocation) {
@@ -258,9 +275,14 @@ export default class Allocation extends Component {
     }
 
     arrumaHora(allocation){
-        const horaSemNada = allocation.start
-        const tirandoOFuso = horaSemNada.subtitle(0,horaSemNada.length -5)
-        return console.log(tirandoOFuso)
+        const horaSemNada = allocation
+        const tirandoOPOnto = horaSemNada.replace(":","")
+        const TirandoOutrosPontos = tirandoOPOnto.substring(0, 4)
+        const tirandoOFuso = TirandoOutrosPontos - "300"
+        const hora = tirandoOFuso + ''
+        const horaConvertida = hora.substring(0,2)
+        const minutosConvertida = hora.substring(2)
+        return horaConvertida + ':' + minutosConvertida
     }
 
     renderRows() {
@@ -271,8 +293,8 @@ export default class Allocation extends Component {
                     <td>{allocation.course.name}</td>
                     <td>{allocation.professor.name}</td>
                     <td>{this.diaPt(allocation)}</td>
-                    <td>{allocation.start}</td>
-                    <td>{allocation.end}</td>
+                    <td>{this.arrumaHora(allocation.start)}</td>
+                    <td>{this.arrumaHora(allocation.end)}</td>
                     <td>
                         <button className="btn btn-warning"
                             onClick={() => this.load(allocation)}>

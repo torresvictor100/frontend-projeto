@@ -28,6 +28,7 @@ export default class Course extends Component {
 
     clear() {
         this.setState({ course: initialState.course })
+        alert("Foi limpado todo o campo")
     }
 
     save() {
@@ -94,6 +95,7 @@ export default class Course extends Component {
 
     load(course) {
         this.setState({ course })
+        alert("A course com o id:" + course.id + " Esta no campo para ser atualizado para se atualizada")
     }
 
     remove(course) {
