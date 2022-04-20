@@ -12,7 +12,7 @@ const headerProps = {
 const baseUrl = 'http://localhost:8080/departments'
 
 const initialState = {
-    departament: { name: '', sigla: '', area: 'BIOLOGICAS' },
+    departament: { name: '', sigla: '', area: '' },
     list: []
 }
 
@@ -41,7 +41,6 @@ export default class Departament extends Component {
                 const list = this.getUpdatedList(resp.data)
                 this.setState({ departament: initialState.departament, list })
             })
-            console.log(departament.id)
     }
 
     getUpdatedList(departament, add = true) {
