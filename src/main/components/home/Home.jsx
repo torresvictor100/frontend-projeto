@@ -9,5 +9,5 @@ export default props =>
             Bem Vindo!
         </div>
         <hr />
-        <p className='mb-0'>Sistema para Cadastra uma alocação dos professores</p>
+        <p className='mb-0'>Sistema para cadastro de alocações dos professores.</p>
     </Main> 

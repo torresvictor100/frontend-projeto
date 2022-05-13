@@ -1,10 +1,14 @@
 .btn {
     margin: 10px;
-    width: 200px;
+    width: 100px;
     margin-left: 50px;
 }
 
 .selectAreaId {
     height: 39px;
-    width: 100%;
+    width: 50%;
+}
+
+.form-control{
+    width: 50%;
 }

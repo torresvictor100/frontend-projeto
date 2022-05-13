@@ -1,5 +1,5 @@
 import './Logo.css'
-import Logo from '../../../imagens/logo-qualiti.webp'
+import Logo from '../../../imagens/logo.jpeg'
 
 export default props =>
 <aside className='logo'>

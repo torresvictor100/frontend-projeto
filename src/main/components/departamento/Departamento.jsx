@@ -9,7 +9,7 @@ const headerProps = {
     subtitle: 'Cadastro de departamento: Incluir, Listar, Alterar e excluir'
 }
 
-const baseUrl = 'http://localhost:8080/departments'
+const baseUrl = 'https://muribequers-backend.herokuapp.com/departments'
 
 const initialState = {
     departament: { name: '', sigla: '', area: '' },
@@ -74,17 +74,17 @@ export default class Departament extends Component {
                             <label>Nome</label>
                             <input type="text" className="form-control" name="name"
                                 value={this.state.departament.name} onChange={e => this.updateField(e)}
-                                placeholder="Digite o nome..." />
+                                placeholder="Nome..." />
                         </div>
                     </div>
 
                     <div className="col-12 col-md-4">
                         <div className="form-grup">
 
-                            <label>sigla</label>
+                            <label>Sigla</label>
                             <input type="text" className="form-control" name="sigla"
                                 value={this.state.departament.sigla} onChange={e => this.updateField(e)}
-                                placeholder="Digite o sigla..." />
+                                placeholder="Sigla..." />
 
                         </div>
                     </div>
@@ -94,7 +94,7 @@ export default class Departament extends Component {
                             <label>Area</label>
                             <div/>
                             <select className="selectAreaId" name="selectArea" id= "area" onChange={e => this.mudararea()}>
-                                <option>Selecione a area</option>
+                                <option>Area</option>
                                 <option value="BIOLOGICAS" type="text" id="BIOLOGICAS"  >BIOLOGICAS</option>
                                 <option value="EXATAS" type="text" id="EXATAS" >EXATAS</option>
                                 <option value="HUMANAS" type="text" id="HUMANAS"  >HUMANAS</option>
@@ -138,7 +138,7 @@ export default class Departament extends Component {
                     <tr>
                         <th>ID</th>
                         <th>Nome</th>
-                        <th>sigla</th>
+                        <th>Sigla</th>
                         <th>Area</th>
                         <th>Ações</th>
                     </tr>

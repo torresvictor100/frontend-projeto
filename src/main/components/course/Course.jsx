@@ -9,7 +9,7 @@ const headerProps = {
     subtitle: 'Cadastro de curso: Incluir, Listar, Alterar e excluir'
 }
 
-const baseUrl = 'http://localhost:8080/courses'
+const baseUrl = 'https://muribequers-backend.herokuapp.com//courses'
 
 const initialState = {
     course: { name: '', sigla: '' },
@@ -63,7 +63,7 @@ export default class Course extends Component {
                             <label>Nome</label>
                             <input type="text" className="form-control" name="name"
                                 value={this.state.course.name} onChange={e => this.updateField(e)}
-                                placeholder="Digite o nome..." />
+                                placeholder="Nome..." />
                         </div>
                     </div>
 
@@ -72,7 +72,7 @@ export default class Course extends Component {
                             <label>Sigla</label>
                             <input type="text" className="form-control" name="sigla"
                                 value={this.state.course.sigla} onChange={e => this.updateField(e)}
-                                placeholder="Digite o sigla..." />
+                                placeholder="Sigla..." />
                         </div>
                     </div>
                 </div>

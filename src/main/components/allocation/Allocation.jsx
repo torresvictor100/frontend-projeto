@@ -9,10 +9,9 @@ const headerProps = {
     subtitle: 'Cadastro de Alocações: Incluir, Listar, Alterar e excluir'
 }
 
-const baseUrl = 'http://localhost:8080/allocations'
-const baseUrlProfessors = 'http://localhost:8080/professors'
-const baseUrlCourses = 'http://localhost:8080/courses'
-
+const baseUrl = 'https://muribequers-backend.herokuapp.com/allocations'
+const baseUrlProfessors = 'https://muribequers-backend.herokuapp.com/professors'
+const baseUrlCourses = 'https://muribequers-backend.herokuapp.com//courses'
 
 const initialState = {
     allocation: { day: '', start: '', end: '', professorId: '', courseId: '' },
@@ -104,7 +103,7 @@ export default class Allocation extends Component {
         listaDeDados.map((professor) => professor.id == (listProfessoresUnicos.map((professor) => professor.id) ? listProfessoresUnicos.push(professor) : null))
         return (
             <select className="select" name="selectProfessor" id="professor" onChange={e => this.mudarProfessor()}>
-                <option>Select o Professor</option>
+                <option>Professor</option>
                 {(listaDeDados.map((professor) => (<option key={professor.id} value={professor.id} >  {professor.name} </option>)))}
             </select>
         )
@@ -121,7 +120,7 @@ export default class Allocation extends Component {
     opitonDay() {
         return (
             <select className="select" name="selectDay" id="day" onChange={e => this.mudarDay()}>
-                <option>Select o Dia</option>
+                <option>Dia</option>
                 <option value={'MONDAY'}>Segunda</option>
                 <option value={'TUESDAY'}>Terça</option>
                 <option value={'WEDNESDAY'}>Quarta</option>
@@ -147,7 +146,7 @@ export default class Allocation extends Component {
         listaDeDados.map((curso) => curso.id == (listCursoUnicos.map((curso) => curso.id) ? listCursoUnicos.push(curso) : null))
         return (
             <select className="select" name="selectCurso" id="curso" onChange={e => this.mudarCurso()}>
-                <option>Select o Curso</option>
+                <option>Curso</option>
                 {(listaDeDados.map((curso) => (<option key={curso.id} value={curso.id} >  {curso.name} </option>)))}
             </select>
         )
@@ -157,25 +156,31 @@ export default class Allocation extends Component {
         return (
             <div className="form">
                 <div className="row">
-                    <div className="col-12 col-md-4">
+                    <div className="col-12 col-md-2">
                         <div className="form-grup">
                             <label>Curso</label>
-                            {this.opitonCurso()}
+                            <div>
+                                {this.opitonCurso()}
+                            </div>
                         </div>
                     </div>
-                    <div className="col-12 col-md-4">
+                    <div className="col-12 col-md-2">
                         <div className="form-grup">
                             <label>Dia</label>
-                            {this.opitonDay()}
+                            <div>
+                                {this.opitonDay()}
+                            </div>
                         </div>
                     </div>
-                    <div className="col-12 col-md-4">
+                    <div className="col-12 col-md-2">
                         <div className="form-grup">
                             <label>Professor</label>
-                            {this.opitonProfessor()}
+                            <div>
+                                {this.opitonProfessor()}
+                            </div>
                         </div>
                     </div>
-                    <div className="col-12 col-md-4">
+                    <div className="col-12 col-md-3">
                         <div className="form-grup">
                             <label>Inicio</label>
                             <input type="time" className="form-control" name="start"
@@ -183,7 +188,7 @@ export default class Allocation extends Component {
                             />
                         </div>
                     </div>
-                    <div className="col-12 col-md-4">
+                    <div className="col-12 col-md-3">
                         <div className="form-grup">
                             <label>Final</label>
                             <input type="time" className="form-control" name="end"
@@ -197,7 +202,6 @@ export default class Allocation extends Component {
                 <div className="row">
 
                 </div>
-                <hr />
 
                 <div className="row">
                     <div className="col-12 d-flex justify-content-end">

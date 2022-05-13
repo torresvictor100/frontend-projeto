@@ -9,8 +9,8 @@ const headerProps = {
     subtitle: 'Cadastro de Professor: Incluir, Listar, Alterar e excluir'
 }
 
-const baseUrl = 'http://localhost:8080/professors'
-const baseUrlDepartment = 'http://localhost:8080/departments'
+const baseUrl = 'https://muribequers-backend.herokuapp.com/professors'
+const baseUrlDepartment = 'https://muribequers-backend.herokuapp.com/departments'
 
 
 const initialState = {
@@ -83,7 +83,7 @@ export default class Professor extends Component {
         listaDeDados.map((department) =>  department.id == (listDepartmentUnicos.map((department) => department.id)? listDepartmentUnicos.push(department) : null ))
         return (
             <select className="selectAreaId" name="selectArea" id= "area" onChange={e => this.mudararea()}>
-                                <option>Select o departamento</option>
+                                <option>Departamento</option>
                                 { (listaDeDados.map( (department)=>( <option key={department.id} value={department.id} >  {department.name} </option>))) }
                             </select>
         )
@@ -98,7 +98,7 @@ export default class Professor extends Component {
                             <label>Nome</label>
                             <input type="text" className="form-control" name="name"
                                 value={this.state.professor.name} onChange={e => this.updateField(e)}
-                                placeholder="Digite o nome..." />
+                                placeholder="Nome..." />
                         </div>
                     </div>
 
@@ -107,13 +107,15 @@ export default class Professor extends Component {
                             <label>CPF</label>
                             <input type="text" className="form-control" name="cpf"
                                 value={this.state.professor.cpf} onChange={e => this.updateField(e)}
-                                placeholder="Digite o CPF..." />
+                                placeholder="CPF..." />
                         </div>
                     </div>
                     <div className="col-12 col-md-4">
                         <div className="form-grup">
                             <label>Departamento</label>
-                            {this.opiton()}
+                            <div>
+                                {this.opiton()}
+                            </div>
                             <div/>
                             
                         </div>
